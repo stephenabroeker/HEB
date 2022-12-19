@@ -1,0 +1,26 @@
+Solution
+--------
+
+The HTTP REST API is created by javascript.
+
+I used mysql as the SQL repository.
+Create the DB ("heb").
+Then use create_tables.sql.
+
+I used AWS Rekognition to detect image objects.
+This requires that the images be processed in AWS S3.
+So the POST Method has to first upload the {file, url} to S3.
+
+Problems
+--------
+
+POST /images
+
+I wanted to use the AWS S3 SDK to store a file, but I could not get it to work.
+So used the "aws s3api post-object" instead to upload the file to AWS S3.
+
+I wanted to use a javascript module to store a url, but I could not get it to 
+work.
+So I first stored the url data as a temp file and then use 
+"aws s3api post-object" to upload the temp file to AWS S3.
+
